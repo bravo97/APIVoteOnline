@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "wTl691IY64mU15pTpd8LXgxPRsJlaQOsuJbse2j1i0s=",
+  "Source": "VoteOnline.API",
+  "BasePath": "_content/VoteOnline.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

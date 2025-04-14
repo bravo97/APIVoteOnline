@@ -1,0 +1,15 @@
+E:\HungLT\WEBAPI\Vote\Vote.API\VoteOnline\VoteOnline.Application\bin\Release\net8.0\VoteOnline.Application.deps.json
+E:\HungLT\WEBAPI\Vote\Vote.API\VoteOnline\VoteOnline.Application\bin\Release\net8.0\VoteOnline.Application.dll
+E:\HungLT\WEBAPI\Vote\Vote.API\VoteOnline\VoteOnline.Application\bin\Release\net8.0\VoteOnline.Application.pdb
+E:\HungLT\WEBAPI\Vote\Vote.API\VoteOnline\VoteOnline.Application\bin\Release\net8.0\VoteOnline.Domain.dll
+E:\HungLT\WEBAPI\Vote\Vote.API\VoteOnline\VoteOnline.Application\bin\Release\net8.0\VoteOnline.Domain.pdb
+E:\HungLT\WEBAPI\Vote\Vote.API\VoteOnline\VoteOnline.Application\obj\Release\net8.0\VoteOnline.Application.csproj.AssemblyReference.cache
+E:\HungLT\WEBAPI\Vote\Vote.API\VoteOnline\VoteOnline.Application\obj\Release\net8.0\VoteOnline.Application.GeneratedMSBuildEditorConfig.editorconfig
+E:\HungLT\WEBAPI\Vote\Vote.API\VoteOnline\VoteOnline.Application\obj\Release\net8.0\VoteOnline.Application.AssemblyInfoInputs.cache
+E:\HungLT\WEBAPI\Vote\Vote.API\VoteOnline\VoteOnline.Application\obj\Release\net8.0\VoteOnline.Application.AssemblyInfo.cs
+E:\HungLT\WEBAPI\Vote\Vote.API\VoteOnline\VoteOnline.Application\obj\Release\net8.0\VoteOnline.Application.csproj.CoreCompileInputs.cache
+E:\HungLT\WEBAPI\Vote\Vote.API\VoteOnline\VoteOnline.Application\obj\Release\net8.0\VoteOnli.11AC8D79.Up2Date
+E:\HungLT\WEBAPI\Vote\Vote.API\VoteOnline\VoteOnline.Application\obj\Release\net8.0\VoteOnline.Application.dll
+E:\HungLT\WEBAPI\Vote\Vote.API\VoteOnline\VoteOnline.Application\obj\Release\net8.0\refint\VoteOnline.Application.dll
+E:\HungLT\WEBAPI\Vote\Vote.API\VoteOnline\VoteOnline.Application\obj\Release\net8.0\VoteOnline.Application.pdb
+E:\HungLT\WEBAPI\Vote\Vote.API\VoteOnline\VoteOnline.Application\obj\Release\net8.0\ref\VoteOnline.Application.dll
