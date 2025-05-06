@@ -40,3 +40,4 @@ S:\ATO\Vote\Vote\Vote.API\VoteOnline\VoteOnline\VoteOnline.Domain\obj\Debug\net8
 S:\ATO\Vote\Vote\Vote.API\VoteOnline\VoteOnline\VoteOnline.Domain\obj\Debug\net8.0\VoteOnline.Domain.pdb
 S:\ATO\Vote\Vote\Vote.API\VoteOnline\VoteOnline\VoteOnline.Domain\obj\Debug\net8.0\VoteOnline.Domain.genruntimeconfig.cache
 S:\ATO\Vote\Vote\Vote.API\VoteOnline\VoteOnline\VoteOnline.Domain\obj\Debug\net8.0\ref\VoteOnline.Domain.dll
+S:\ATO\Vote\Vote\Vote.API\VoteOnline\VoteOnline\VoteOnline.Domain\obj\Debug\net8.0\VoteOnline.Domain.sourcelink.json

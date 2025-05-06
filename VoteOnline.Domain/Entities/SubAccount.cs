@@ -1,47 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
 
 namespace VoteOnline.Domain.Entities;
 
-[Table("SubAccount")]
 public partial class SubAccount
 {
-    [Key]
-    [Column("id")]
     public int Id { get; set; }
 
-    [Column("IDMainAccount")]
-    public int IdmainAccount { get; set; }
+    public string Code { get; set; } = null!;
 
-    [StringLength(1)]
     public string HoTen { get; set; } = null!;
 
-    [StringLength(1)]
     public string DienThoai { get; set; } = null!;
 
-    [Column("CMND")]
-    [StringLength(1)]
-    public string Cmnd { get; set; } = null!;
+    public string? Email { get; set; }
 
-    [Column("IDVanDe")]
-    public int IdvanDe { get; set; }
+    public string? Token { get; set; }
 
-    [Column("KhoaBM")]
-    [StringLength(1)]
-    [Unicode(false)]
-    public string KhoaBm { get; set; } = null!;
+    public DateTime? LastLogin { get; set; }
 
-    [InverseProperty("IdsubAccountNavigation")]
-    public virtual ICollection<BieuQuyet> BieuQuyets { get; set; } = new List<BieuQuyet>();
+    public DateTime? DateCreate { get; set; }
 
-    [ForeignKey("IdmainAccount")]
-    [InverseProperty("SubAccounts")]
-    public virtual MainAccount IdmainAccountNavigation { get; set; } = null!;
+    public string? ResfreshToken { get; set; }
 
-    [ForeignKey("IdvanDe")]
-    [InverseProperty("SubAccounts")]
-    public virtual VanDe IdvanDeNavigation { get; set; } = null!;
+    public DateTime? RefreshTokenExpiryTime { get; set; }
+
+    public DateTime? ExpiryDate { get; set; }
 }
