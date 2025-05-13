@@ -14,13 +14,4 @@ namespace VoteOnline.Domain.Models
         public string? CMND { get; set; }
         public string? KhoaBM { get; set; }
     }
-
-
-    public class SubAccountRequest
-    {
-        public int Id { get; set; }
-        public int IdMainAccount { get; set; }
-        public int IdVanDe { get; set; }
-        public required List<SubAccountModel> subAccountModels { get; set; }
-    }
 }

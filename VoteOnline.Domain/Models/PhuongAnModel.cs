@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VoteOnline.Domain.Models
 {
-    public class DinhDangModel
+    public class PhuongAnModel
     {
         public int Id { get; set; }
         public string Ma { get; set; }

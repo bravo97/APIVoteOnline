@@ -13,6 +13,5 @@ namespace VoteOnline.Application
         Task<TokenApiDTO> AuthenticateAsync(UserModel user);
         Task<MainAccountModel> Register(MainAccountModel user);
         Task<bool> CheckEmailExists(string email);
-        Task<TokenApiDTO> LoginAsync(UserModel user);
     }
 }

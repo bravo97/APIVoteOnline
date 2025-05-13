@@ -43,3 +43,4 @@ S:\ATO\Vote\Vote\Vote.API\VoteOnline\VoteOnline\VoteOnline.Application\obj\Debug
 S:\ATO\Vote\Vote\Vote.API\VoteOnline\VoteOnline\VoteOnline.Application\obj\Debug\net8.0\refint\VoteOnline.Application.dll
 S:\ATO\Vote\Vote\Vote.API\VoteOnline\VoteOnline\VoteOnline.Application\obj\Debug\net8.0\VoteOnline.Application.pdb
 S:\ATO\Vote\Vote\Vote.API\VoteOnline\VoteOnline\VoteOnline.Application\obj\Debug\net8.0\ref\VoteOnline.Application.dll
+S:\ATO\Vote\Vote\Vote.API\VoteOnline\VoteOnline\VoteOnline.Application\obj\Debug\net8.0\VoteOnline.Application.sourcelink.json

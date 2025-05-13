@@ -7,8 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using VoteOnline.Application;
 using VoteOnline.Domain.Entities;
+using VoteOnline.Domain.Models.DTO;
 using VoteOnline.Domain.Models.Update;
-using VoteOnline.Domain.Models.View;
 
 namespace VoteOnline.Infratructure
 {
@@ -27,35 +27,42 @@ namespace VoteOnline.Infratructure
                 .FirstOrDefaultAsync(c => c.Id == ID);
         }
 
-        public async Task<VanDeModel> AddVanDeAsync(VanDeModelUpdate vanDe)
+        public async Task<VanDeDTO> AddVanDeAsync(VanDeDTO vanDe)
         {
             var newVD = new VanDe { 
                 TenVd = vanDe.TenVD,
                 MoTa = vanDe.Mota,
                 NgayBatDau = vanDe.NgayBatDau,
                 NgayKetThuc = vanDe.NgayKetThuc,
-                IddinhDang = vanDe.DinhDang,
-                IdMainAccount = vanDe.MainAccount
+                IdMainAccount = vanDe.IdMainAccount,
+                PhuongAns = vanDe.PhuongAns.Select(pA => new PhuongAn
+                {
+                    Ten = pA.Ten
+                }).ToList()
             };
 
             var vande = await _authcontext.VanDes.AddAsync(newVD);
             await _authcontext.SaveChangesAsync();
 
-            var rVD = new VanDeModel
+            
+            var rVD = new VanDeDTO
             {
                 Id = newVD.Id,
                 TenVD = newVD.TenVd,
                 Mota = newVD.MoTa,
                 NgayBatDau = newVD.NgayBatDau,
                 NgayKetThuc = newVD.NgayKetThuc,
-                DinhDang = "",
-                MainAccount = ""
+                PhuongAns = newVD.PhuongAns.Select(pA => new PhuongAnDTO
+                {
+                    Id = pA.Id,
+                    Ten = pA.Ten
+                }).ToList(),
             };
 
             return rVD;
         }
 
-        public async Task<bool> DeleteVanDeAsync(VanDeModelUpdate vanDe)
+        public async Task<bool> DeleteVanDeAsync(VanDeDTO vanDe)
         {
             var exVD = await GetVanDeByIDAsync(vanDe.Id);
             if (exVD != null) { 
@@ -69,52 +76,29 @@ namespace VoteOnline.Infratructure
             return false;
         }
 
-        public async Task<List<VanDeModel>> GetAllVanDeAsync( int pageIndex, int pageSize, int IdAccount)
+        public async Task<List<VanDeDTO>> GetAllVanDeAsync( int pageIndex, int pageSize, int IdAccount)
         {
             var vande = await _authcontext.VanDes
-            .GroupJoin(_authcontext.DinhDangs,
-                vd => vd.IddinhDang,
-                dd => dd.Id,
-                (vd, dd) => new { vd, dd })
-            .SelectMany(uo => uo.dd.DefaultIfEmpty(),
-                (uo, o) => new { uo.vd, o })
-            .GroupJoin(_authcontext.MainAccounts,
-                uo => uo.vd.IdMainAccount,
-                us => us.Id,
-                (uo, MainAccount) => new { uo.vd, uo.o, MainAccount })
-            .SelectMany(uod => uod.MainAccount.DefaultIfEmpty(),
-                (uod, od) => new
-                {
-                    Id = uod.vd.Id,
-                    TenVD = uod.vd.TenVd,
-                    Mota = uod.vd.MoTa,
-                    NgayBatdau = uod.vd.NgayBatDau,
-                    NgayKetThuc = uod.vd.NgayKetThuc,
-                    TenDinhDang = uod.o.Ma,
-                    IdMainAccount = uod.vd.IdMainAccount,
-                    IdDinhDang = uod.o.Id,
-                    TaiKhoan = od.HoTen
-                })
-            .Where(vd => vd.IdMainAccount == IdAccount)
-            .Select(s => new VanDeModel
-            {
-                Id = s.Id,
-                TenVD = s.TenVD,
-                Mota = s.Mota,
-                NgayBatDau = s.NgayBatdau,
-                NgayKetThuc = s.NgayKetThuc,
-                DinhDang = s.TenDinhDang,
-                MainAccount = s.TaiKhoan,
-                IdDinhDang = s.IdDinhDang,
-                IdMainAccount = s.IdMainAccount
-            })
-           
-            .ToListAsync();
+                    .Select(v => new VanDeDTO
+                    {
+                        Id = v.Id,
+                        TenVD = v.TenVd,
+                        Mota = v.MoTa,
+                        NgayBatDau = v.NgayBatDau,
+                        NgayKetThuc = v.NgayKetThuc,
+                        Code = v.Code,
+                        PhuongAns = v.PhuongAns.Select(p => new PhuongAnDTO
+                        {
+                            Id = p.Id,
+                            Ten = p.Ten
+                        }).ToList()
+                    })
+                    .ToListAsync();
 
             return vande;
         }
 
-        public async Task<bool> UpdateVanDeAsync(VanDeModelUpdate vanDe)
+        public async Task<bool> UpdateVanDeAsync(VanDeDTO vanDe)
         {
             var exVD = await GetVanDeByIDAsync(vanDe.Id);
             if (exVD != null) { 
@@ -122,7 +106,6 @@ namespace VoteOnline.Infratructure
                 exVD.MoTa = vanDe.Mota;
                 exVD.NgayBatDau = (DateTime)vanDe.NgayBatDau;
                 exVD.NgayKetThuc = (DateTime)vanDe.NgayKetThuc;
-                exVD.IddinhDang = vanDe.DinhDang;
 
                 _authcontext.Entry(exVD).State = EntityState.Modified;
                 await _authcontext.SaveChangesAsync();
@@ -132,6 +115,38 @@ namespace VoteOnline.Infratructure
 
             return false;
 
+        }
+
+        public async Task<bool> CreateLinkAsync(VanDeID vanDe)
+        {
+            var ListID = await _authcontext.VanDes
+                .Where(vd => vanDe.ListID.Contains(vd.Id))
+                .ExecuteUpdateAsync(ballots => ballots.SetProperty(v => v.Code, vanDe.Code));
+
+            return true;
+        }
+
+        public async Task<List<VanDeDTO>> GetVanDeByCodeAsync(string vanDe)
+        {
+            var vande = await _authcontext.VanDes
+                    .Select(v => new VanDeDTO
+                    {
+                        Id = v.Id,
+                        TenVD = v.TenVd,
+                        Mota = v.MoTa,
+                        NgayBatDau = v.NgayBatDau,
+                        NgayKetThuc = v.NgayKetThuc,
+                        Code = v.Code,
+                        PhuongAns = v.PhuongAns.Select(p => new PhuongAnDTO
+                        {
+                            Id = p.Id,
+                            Ten = p.Ten
+                        }).ToList()
+                    })
+                    .Where(v => v.Code == vanDe)
+                    .ToListAsync();
+
+            return vande;
         }
     }
 }

@@ -39,19 +39,5 @@ namespace VoteOnline.API.Controllers
             var _user = await userResponsitory.Register(mainAccount);
             return Ok(_user);
         }
-
-        [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] UserModel user)
-        {
-            if (user == null) { return BadRequest(); }
-            var token = await userResponsitory.LoginAsync(user);
-            if (token == null)
-            {
-                return NotFound("Đăng nhập thất bại");
-            }
-
-            return Ok(token);
-        }
-
     }
 }

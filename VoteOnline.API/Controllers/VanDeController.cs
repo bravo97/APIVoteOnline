@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using VoteOnline.Domain.Entities;
+using VoteOnline.Domain.Models.DTO;
 using VoteOnline.Domain.Models.Update;
-using VoteOnline.Domain.Models.View;
 using VoteOnline.Infratructure;
 
 namespace VoteOnline.API.Controllers
@@ -27,7 +28,7 @@ namespace VoteOnline.API.Controllers
         }
 
         [HttpPost("add")]
-        public async Task<IActionResult> AddAsync([FromBody] VanDeModelUpdate vanDe)
+        public async Task<IActionResult> AddAsync([FromBody] VanDeDTO vanDe)
         {
             if (vanDe == null) { return BadRequest("Vui lòng nhập dữ liệu"); }
 
@@ -39,7 +40,7 @@ namespace VoteOnline.API.Controllers
         }
 
         [HttpPut("update")]
-        public async Task<IActionResult> UpdateAsync([FromBody] VanDeModelUpdate vanDe)
+        public async Task<IActionResult> UpdateAsync([FromBody] VanDeDTO vanDe)
         {
             if (vanDe == null) { return BadRequest("Vui lòng nhập dữ liệu"); }
 
@@ -50,9 +51,18 @@ namespace VoteOnline.API.Controllers
             return Ok(datas);
         }
 
+        [HttpPut("createlink")]
+        public async Task<IActionResult> CreateLink([FromBody] VanDeID listID)
+        {
+            if (listID == null) { return BadRequest("Vui lòng nhập dữ liệu"); }
+
+            var datas = await this._service.CreateLinkAsync(listID);
+            return Ok(datas);
+        }
+
 
         [HttpDelete("delete")]
-        public async Task<IActionResult> RemoveAsync([FromBody] VanDeModelUpdate vanDe)
+        public async Task<IActionResult> RemoveAsync([FromBody] VanDeDTO vanDe)
         {
             if (vanDe == null) { return BadRequest("Vui lòng nhập dữ liệu"); }
 

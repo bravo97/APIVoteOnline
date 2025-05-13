@@ -17,7 +17,7 @@ public partial class VanDe
 
     public int IdMainAccount { get; set; }
 
-    public string Code { get; set; } = null!;
+    public string? Code { get; set; }
 
     public virtual ICollection<BieuQuyet> BieuQuyets { get; set; } = new List<BieuQuyet>();
 

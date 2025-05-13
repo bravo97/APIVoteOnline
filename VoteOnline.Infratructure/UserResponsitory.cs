@@ -83,6 +83,7 @@ namespace VoteOnline.Infratructure
             var key = Encoding.ASCII.GetBytes(_configuration["JWT:Key"]);
             var identity = new ClaimsIdentity(new Claim[]
             {
+                new Claim(ClaimTypes.SerialNumber,$"{users.Id}"),
                 new Claim(ClaimTypes.Name,$"{users.UserName}"),
                 new Claim(ClaimTypes.NameIdentifier,$"{users.HoTen}")
             });
@@ -91,29 +92,7 @@ namespace VoteOnline.Infratructure
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = identity,
-                Expires = DateTime.Now.AddSeconds(10),
-                SigningCredentials = credentials
-            };
-            var token = jwtTokenHandler.CreateToken(tokenDescriptor);
-            return jwtTokenHandler.WriteToken(token);
-        }
-
-        private string CreateJwtUser(SubAccount users)
-        {
-            var jwtTokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_configuration["JWT:Key"]);
-            var identity = new ClaimsIdentity(new Claim[]
-            {
-                new Claim(ClaimTypes.SerialNumber,$"{users.Cmnd}"),
-                new Claim(ClaimTypes.Name,$"{users.HoTen}"),
-                new Claim(ClaimTypes.NameIdentifier,$"{users.IdmainAccountNavigation.CustomCode}")
-            });
-
-            var credentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = identity,
-                Expires = DateTime.Now.AddMinutes(30),
+                Expires = DateTime.Now.AddHours(10),
                 SigningCredentials = credentials
             };
             var token = jwtTokenHandler.CreateToken(tokenDescriptor);
@@ -132,22 +111,6 @@ namespace VoteOnline.Infratructure
             }
 
             return refreshToken;
-        }
-
-        public async Task<TokenApiDTO> LoginAsync(UserModel user)
-        {
-            var _user = await _context.SubAccounts
-                .Include(sc=> sc.IdmainAccountNavigation)
-                .FirstOrDefaultAsync(x => (x.DienThoai == user.UserName || x.Cmnd == user.UserName) && x.KhoaBm == user.Password);
-            if (_user == null) return null;
-
-            var token = CreateJwtUser(_user);
-
-            return new TokenApiDTO
-            {
-                AccessToken = token,
-                RefreshToken = "",
-            };
         }
     }
 }

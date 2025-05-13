@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace VoteOnline.Domain.Models.DTO
 {
-    public class TokenUserApiDTO
+    public class PhuongAnDTO
     {
-        public string AccessToken { get; set; } = string.Empty;
-        public string Room { get; set; } = string.Empty;
+        public int Id { get; set; }
+
+        public int IdvanDe { get; set; }
+
+        public string? Ten { get; set; }
     }
 }

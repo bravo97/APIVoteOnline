@@ -13,7 +13,7 @@ public partial class SubAccount
 
     public string DienThoai { get; set; } = null!;
 
-    public string? Email { get; set; }
+    public string Email { get; set; } = null!;
 
     public string? Token { get; set; }
 
@@ -21,7 +21,7 @@ public partial class SubAccount
 
     public DateTime? DateCreate { get; set; }
 
-    public string? ResfreshToken { get; set; }
+    public string? RefreshToken { get; set; }
 
     public DateTime? RefreshTokenExpiryTime { get; set; }
 

@@ -1,83 +1,31 @@
 [
   {
-    "ContainingType": "VoteOnline.API.Controllers.SubAccountController",
-    "Method": "AddAsync",
-    "RelativePath": "api/SubAccount/add",
+    "ContainingType": "VoteOnline.API.Controllers.HomeController",
+    "Method": "GetVanDe",
+    "RelativePath": "api/Home/get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "subacc",
-        "Type": "VoteOnline.Domain.Models.SubAccountRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "VoteOnline.API.Controllers.SubAccountController",
-    "Method": "RemoveAsync",
-    "RelativePath": "api/SubAccount/delete",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "subacc",
-        "Type": "VoteOnline.Domain.Models.SubAccountModel",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "VoteOnline.API.Controllers.SubAccountController",
-    "Method": "Get",
-    "RelativePath": "api/SubAccount/get",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "text",
+        "Name": "vande",
         "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageIndex",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "IdAccount",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "idvande",
-        "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "VoteOnline.API.Controllers.SubAccountController",
-    "Method": "UpdateAsync",
-    "RelativePath": "api/SubAccount/update",
-    "HttpMethod": "PUT",
+    "ContainingType": "VoteOnline.API.Controllers.HomeController",
+    "Method": "RegisterUser",
+    "RelativePath": "api/Home/register",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "subacc",
-        "Type": "VoteOnline.Domain.Models.SubAccountRequest",
+        "Name": "acc",
+        "Type": "VoteOnline.Domain.Entities.SubAccount",
         "IsRequired": true
       }
     ],
@@ -87,22 +35,6 @@
     "ContainingType": "VoteOnline.API.Controllers.UsersController",
     "Method": "Authenticate",
     "RelativePath": "api/Users/authenticate",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "user",
-        "Type": "VoteOnline.Domain.Models.UserModel",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "VoteOnline.API.Controllers.UsersController",
-    "Method": "Login",
-    "RelativePath": "api/Users/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -141,7 +73,23 @@
     "Parameters": [
       {
         "Name": "vanDe",
-        "Type": "VoteOnline.Domain.Models.Update.VanDeModelUpdate",
+        "Type": "VoteOnline.Domain.Models.DTO.VanDeDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VoteOnline.API.Controllers.VanDeController",
+    "Method": "CreateLink",
+    "RelativePath": "api/VanDe/createlink",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "listID",
+        "Type": "VoteOnline.Domain.Models.DTO.VanDeID",
         "IsRequired": true
       }
     ],
@@ -157,7 +105,7 @@
     "Parameters": [
       {
         "Name": "vanDe",
-        "Type": "VoteOnline.Domain.Models.Update.VanDeModelUpdate",
+        "Type": "VoteOnline.Domain.Models.DTO.VanDeDTO",
         "IsRequired": true
       }
     ],
@@ -204,7 +152,7 @@
     "Parameters": [
       {
         "Name": "vanDe",
-        "Type": "VoteOnline.Domain.Models.Update.VanDeModelUpdate",
+        "Type": "VoteOnline.Domain.Models.DTO.VanDeDTO",
         "IsRequired": true
       }
     ],

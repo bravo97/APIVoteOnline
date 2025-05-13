@@ -339,3 +339,4 @@ S:\ATO\Vote\Vote\Vote.API\VoteOnline\VoteOnline\VoteOnline.API\obj\Debug\net8.0\
 S:\ATO\Vote\Vote\Vote.API\VoteOnline\VoteOnline\VoteOnline.API\obj\Debug\net8.0\VoteOnline.API.pdb
 S:\ATO\Vote\Vote\Vote.API\VoteOnline\VoteOnline\VoteOnline.API\obj\Debug\net8.0\VoteOnline.API.genruntimeconfig.cache
 S:\ATO\Vote\Vote\Vote.API\VoteOnline\VoteOnline\VoteOnline.API\obj\Debug\net8.0\ref\VoteOnline.API.dll
+S:\ATO\Vote\Vote\Vote.API\VoteOnline\VoteOnline\VoteOnline.API\obj\Debug\net8.0\VoteOnline.API.sourcelink.json

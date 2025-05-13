@@ -5,79 +5,26 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/SubAccount/get": {
-      "get": {
-        "tags": [
-          "SubAccount"
-        ],
-        "parameters": [
-          {
-            "name": "text",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "pageIndex",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "IdAccount",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "idvande",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/SubAccount/add": {
+    "/api/Home/register": {
       "post": {
         "tags": [
-          "SubAccount"
+          "Home"
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/SubAccountRequest"
+                "$ref": "#/components/schemas/SubAccount"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/SubAccountRequest"
+                "$ref": "#/components/schemas/SubAccount"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/SubAccountRequest"
+                "$ref": "#/components/schemas/SubAccount"
               }
             }
           }
@@ -89,57 +36,26 @@
         }
       }
     },
-    "/api/SubAccount/update": {
-      "put": {
+    "/api/Home/get": {
+      "post": {
         "tags": [
-          "SubAccount"
+          "Home"
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/SubAccountRequest"
+                "type": "string"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/SubAccountRequest"
+                "type": "string"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/SubAccountRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/SubAccount/delete": {
-      "delete": {
-        "tags": [
-          "SubAccount"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SubAccountModel"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SubAccountModel"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/SubAccountModel"
+                "type": "string"
               }
             }
           }
@@ -213,37 +129,6 @@
         }
       }
     },
-    "/api/Users/login": {
-      "post": {
-        "tags": [
-          "Users"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserModel"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserModel"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserModel"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
     "/api/VanDe/get": {
       "get": {
         "tags": [
@@ -298,17 +183,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/VanDeModelUpdate"
+                "$ref": "#/components/schemas/VanDeDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/VanDeModelUpdate"
+                "$ref": "#/components/schemas/VanDeDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/VanDeModelUpdate"
+                "$ref": "#/components/schemas/VanDeDTO"
               }
             }
           }
@@ -329,17 +214,48 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/VanDeModelUpdate"
+                "$ref": "#/components/schemas/VanDeDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/VanDeModelUpdate"
+                "$ref": "#/components/schemas/VanDeDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/VanDeModelUpdate"
+                "$ref": "#/components/schemas/VanDeDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/VanDe/createlink": {
+      "put": {
+        "tags": [
+          "VanDe"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VanDeID"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VanDeID"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/VanDeID"
               }
             }
           }
@@ -360,17 +276,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/VanDeModelUpdate"
+                "$ref": "#/components/schemas/VanDeDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/VanDeModelUpdate"
+                "$ref": "#/components/schemas/VanDeDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/VanDeModelUpdate"
+                "$ref": "#/components/schemas/VanDeDTO"
               }
             }
           }
@@ -415,12 +331,34 @@
         },
         "additionalProperties": false
       },
-      "SubAccountModel": {
+      "PhuongAnDTO": {
         "type": "object",
         "properties": {
           "id": {
             "type": "integer",
             "format": "int32"
+          },
+          "idvanDe": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ten": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SubAccount": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
           },
           "hoTen": {
             "type": "string",
@@ -430,37 +368,36 @@
             "type": "string",
             "nullable": true
           },
-          "cmnd": {
+          "email": {
             "type": "string",
             "nullable": true
           },
-          "khoaBM": {
+          "token": {
             "type": "string",
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "SubAccountRequest": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
           },
-          "idMainAccount": {
-            "type": "integer",
-            "format": "int32"
+          "lastLogin": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
           },
-          "idVanDe": {
-            "type": "integer",
-            "format": "int32"
+          "dateCreate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
           },
-          "subAccountModels": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SubAccountModel"
-            },
+          "refreshToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "refreshTokenExpiryTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date-time",
             "nullable": true
           }
         },
@@ -480,7 +417,7 @@
         },
         "additionalProperties": false
       },
-      "VanDeModelUpdate": {
+      "VanDeDTO": {
         "type": "object",
         "properties": {
           "id": {
@@ -503,13 +440,42 @@
             "type": "string",
             "format": "date-time"
           },
-          "dinhDang": {
+          "phuongAns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PhuongAnDTO"
+            },
+            "nullable": true
+          },
+          "mainAccount": {
+            "type": "string",
+            "nullable": true
+          },
+          "idMainAccount": {
             "type": "integer",
             "format": "int32"
           },
-          "mainAccount": {
-            "type": "integer",
-            "format": "int32"
+          "code": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "VanDeID": {
+        "type": "object",
+        "properties": {
+          "listID": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

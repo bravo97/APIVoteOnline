@@ -55,3 +55,4 @@ S:\ATO\Vote\Vote\Vote.API\VoteOnline\VoteOnline\VoteOnline.Infratructure\obj\Deb
 S:\ATO\Vote\Vote\Vote.API\VoteOnline\VoteOnline\VoteOnline.Infratructure\obj\Debug\net8.0\VoteOnline.Infratructure.pdb
 S:\ATO\Vote\Vote\Vote.API\VoteOnline\VoteOnline\VoteOnline.Infratructure\obj\Debug\net8.0\VoteOnline.Infratructure.genruntimeconfig.cache
 S:\ATO\Vote\Vote\Vote.API\VoteOnline\VoteOnline\VoteOnline.Infratructure\obj\Debug\net8.0\ref\VoteOnline.Infratructure.dll
+S:\ATO\Vote\Vote\Vote.API\VoteOnline\VoteOnline\VoteOnline.Infratructure\obj\Debug\net8.0\VoteOnline.Infratructure.sourcelink.json

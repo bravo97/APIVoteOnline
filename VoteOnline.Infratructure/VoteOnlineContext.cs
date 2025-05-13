@@ -89,20 +89,20 @@ public partial class VoteOnlineContext : DbContext
 
         modelBuilder.Entity<SubAccount>(entity =>
         {
-            entity.HasKey(e => new { e.Id, e.Code }).HasName("PK__SubAccou__3214EC0767A4F5C0");
+            entity.HasKey(e => new { e.Id, e.Code, e.DienThoai }).HasName("PK__SubAccou__3214EC0767A4F5C0");
 
             entity.ToTable("SubAccount");
 
             entity.Property(e => e.Id).ValueGeneratedOnAdd();
-            entity.Property(e => e.Code).HasMaxLength(11);
-            entity.Property(e => e.DateCreate).HasColumnType("datetime");
+            entity.Property(e => e.Code).HasMaxLength(20);
             entity.Property(e => e.DienThoai).HasMaxLength(10);
+            entity.Property(e => e.DateCreate).HasColumnType("datetime");
             entity.Property(e => e.Email).HasMaxLength(50);
             entity.Property(e => e.ExpiryDate).HasColumnType("datetime");
             entity.Property(e => e.HoTen).HasMaxLength(100);
             entity.Property(e => e.LastLogin).HasColumnType("datetime");
+            entity.Property(e => e.RefreshToken).HasMaxLength(10);
             entity.Property(e => e.RefreshTokenExpiryTime).HasColumnType("datetime");
-            entity.Property(e => e.ResfreshToken).HasMaxLength(10);
             entity.Property(e => e.Token).HasMaxLength(10);
         });
 
@@ -112,7 +112,7 @@ public partial class VoteOnlineContext : DbContext
 
             entity.ToTable("VanDe");
 
-            entity.Property(e => e.Code).HasMaxLength(11);
+            entity.Property(e => e.Code).HasMaxLength(20);
             entity.Property(e => e.MoTa).HasMaxLength(1000);
             entity.Property(e => e.NgayBatDau).HasColumnType("datetime");
             entity.Property(e => e.NgayKetThuc).HasColumnType("datetime");

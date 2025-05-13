@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VoteOnline.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ecafa5a87c6fec25bb61cef0ddcb3c166371c57c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3f935e0f68143a394045ed545ec0db0f7997de4b")]
 [assembly: System.Reflection.AssemblyProductAttribute("VoteOnline.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VoteOnline.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
